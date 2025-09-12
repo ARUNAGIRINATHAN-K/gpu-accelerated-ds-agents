@@ -3,6 +3,18 @@
 An **AI-powered Data Analyst Assistant** that helps users analyze datasets in natural language.
 Built with **HTML, Bootstrap, and JavaScript (frontend)** and **Python (Flask/FastAPI + Pydantic-AI + Pandas/Polars)** as backend.
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.0+-black?logo=flask)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-green?logo=fastapi)
+![Pydantic](https://img.shields.io/badge/Pydantic-AI-orange?logo=pydantic)
+![Pandas](https://img.shields.io/badge/Pandas-1.5+-blue?logo=pandas)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-563D7C?logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript&logoColor=black)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs)
+![License](https://img.shields.io/github/license/your-username/data-analyst-agent)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
+
+
 The system allows users to:
 
 * Upload datasets (CSV/Excel).
