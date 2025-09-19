@@ -126,8 +126,3 @@ Optional features to enhance the application:
 5. **Deploy** (optional):
    - Containerize with Docker.
    - Deploy to a cloud platform like AWS, Heroku, or Render.
-
----
-
-## License
-This project is licensed under the MIT License.
