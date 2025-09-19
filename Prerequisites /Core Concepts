@@ -1,0 +1,22 @@
+I am building a Data Analyst Agent — an AI-powered assistant that can understand natural language queries about datasets, analyze the data automatically, and return insights in structured and visual formats.
+
+🔹 What It Does:
+
+- Accepts datasets (CSV, Excel, etc.) from user
+- Interprets user queries in plain English (e.g., “What’s the average revenue by country?”)
+- Translates those queries into validated data operations using Pydantic-AI schemas
+- Executes analysis with Python (Pandas/Polars)
+- Presents results as tables, charts, or text summaries in an interactive interface (Streamlit or HTML/Bootstrap/JS frontend)
+
+🔹 Why It’s Unique:
+
+- Schema-driven reasoning: Instead of letting the AI hallucinate, you constrain it with Pydantic models (ensures valid, structured outputs).
+- No coding required for the user: Non-technical people can explore datasets just by typing questions.
+- Interactive visualization: Automatically generates the best-suited charts and explanations for insights.
+- Scalable design: Can extend beyond descriptive analytics to forecasting, anomaly detection, or even predictive modeling.
+
+🔹 Problem It Solves:
+
+- Many people have data but lack SQL/Python skills to analyze it.
+- Current dashboards require predefined charts and filters, not flexible natural language queries.
+- My project makes data analysis conversational, intuitive, and dynamic.
