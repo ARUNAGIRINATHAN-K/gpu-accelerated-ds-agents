@@ -1,5 +1,6 @@
 🔑 Core Knowledge Areas
 
+
 1. **Natural Language Processing (NLP)**
 
 * Tokenization, embeddings, transformers (BERT, GPT, etc.)
