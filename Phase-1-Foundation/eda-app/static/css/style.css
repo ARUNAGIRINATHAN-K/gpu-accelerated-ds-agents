@@ -1,0 +1,16 @@
+#dropzone {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+#dropzone.dragover {
+  background-color: #e7f3ff;
+  border-color: #0d6efd;
+}
+#dropzone:hover {
+  background-color: #f8f9fa;
+}
+
+.bi-cloud-upload::before {
+  content: "\f64f";
+  font-family: "Bootstrap Icons";
+}
