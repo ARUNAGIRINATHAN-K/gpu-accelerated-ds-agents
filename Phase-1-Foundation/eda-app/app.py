@@ -4,12 +4,17 @@ import os
 from werkzeug.utils import secure_filename
 import json
 from datetime import datetime
+import numpy as np
+import math
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024  # 10MB max
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
+# Keep the last analyzed summary in memory for the UI page
+LAST_SUMMARY = None
 
 ALLOWED_EXTENSIONS = {'csv', 'xlsx'}
 
@@ -39,7 +44,36 @@ def analyze_dataset(file_path):
         "sample_data": sample_data,
         "memory_usage": f"{df.memory_usage(deep=True).sum() / 1024:.2f} KB"
     }
-    return summary, df
+    # Convert summary to JSON-serializable types (numpy/pandas -> native Python)
+    def make_serializable(obj):
+        if obj is None:
+            return None
+        if isinstance(obj, dict):
+            return {str(k): make_serializable(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [make_serializable(v) for v in obj]
+        # pandas / numpy NA
+        try:
+            if pd.isna(obj):
+                return None
+        except Exception:
+            pass
+        if isinstance(obj, (np.integer,)):
+            return int(obj)
+        if isinstance(obj, (np.floating,)):
+            # Convert NaN to None
+            if math.isnan(obj):
+                return None
+            return float(obj)
+        if isinstance(obj, (np.bool_,)):
+            return bool(obj)
+        if isinstance(obj, (int, float, str, bool)):
+            return obj
+        # fallback to string
+        return str(obj)
+
+    serial_summary = make_serializable(summary)
+    return serial_summary, df
 
 def generate_html_report(summary, df):
     html = f"""
@@ -116,7 +150,8 @@ def generate_html_report(summary, df):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Serve the summary UI as the main app page
+    return render_template('summary.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -132,6 +167,24 @@ def upload_file():
 
         try:
             summary, df = analyze_dataset(filepath)
+            # add some file info
+            try:
+                size_bytes = os.path.getsize(filepath)
+                # human readable
+                for unit in ['B','KB','MB','GB']:
+                    if size_bytes < 1024.0:
+                        size_readable = f"{size_bytes:.2f} {unit}"
+                        break
+                    size_bytes /= 1024.0
+                else:
+                    size_readable = f"{size_bytes:.2f} TB"
+            except Exception:
+                size_readable = 'Unknown'
+            summary['file_info'] = { 'filename': filename, 'size_readable': size_readable }
+
+            # store last summary for the summary-view page
+            global LAST_SUMMARY
+            LAST_SUMMARY = summary
             return jsonify({
                 "success": True,
                 "summary": summary
@@ -160,6 +213,18 @@ def generate_report():
         f.write(html_report)
     
     return send_file(report_path, as_attachment=True, download_name=f"EDA_Report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html")
+
+
+@app.route('/summary-view')
+def summary_view():
+    return render_template('summary.html')
+
+
+@app.route('/summary-data')
+def summary_data():
+    if LAST_SUMMARY is None:
+        return jsonify({"error": "No summary available. Upload a file first."}), 404
+    return jsonify({"success": True, "summary": LAST_SUMMARY})
 
 if __name__ == '__main__':
     app.run(debug=True)
