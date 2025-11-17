@@ -226,5 +226,15 @@ def summary_data():
         return jsonify({"error": "No summary available. Upload a file first."}), 404
     return jsonify({"success": True, "summary": LAST_SUMMARY})
 
+
+@app.route('/favicon.ico')
+def favicon():
+    # Serve the logo in templates/icon as the site favicon so we don't need to move files
+    favicon_path = os.path.join(app.root_path, 'templates', 'icon', 'logo.png')
+    if os.path.exists(favicon_path):
+        return send_file(favicon_path, mimetype='image/png')
+    # fallback: empty response
+    return ('', 404)
+
 if __name__ == '__main__':
     app.run(debug=True)
