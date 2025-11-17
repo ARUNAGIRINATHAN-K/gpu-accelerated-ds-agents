@@ -65,6 +65,19 @@ The system allows users to:
 
 ---
 
+## 📊 EDA Project Phases
+
+| Phase | Name        | Purpose                                                                 |
+|-------|-------------|-------------------------------------------------------------------------|
+| 1     | Foundation  | Establish the groundwork: load data, inspect structure, and set up the environment. |
+| 2     | Refinement  | Clean and preprocess data: handle missing values, outliers, and ensure consistency. |
+| 3     | Lens        | Focus on individual features: explore distributions, summary statistics, and categorical counts. |
+| 4     | Connections | Analyze relationships: correlations, scatterplots, heatmaps, and multivariate insights. |
+| 5     | Discovery   | Derive insights: feature engineering, highlight patterns, and prepare data for modeling. |
+
+
+---
+
 ## 🔹 Architecture Overview
 
 ```
