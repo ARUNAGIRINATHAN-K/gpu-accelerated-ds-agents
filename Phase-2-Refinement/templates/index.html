@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url=/" />
+    <title>Redirecting...</title>
+    <link rel="icon" type="image/png" href="Phase-1-Foundation/eda-app/templates/icon/logo.png">
+    <script>window.location.replace('/');</script>
+  </head>
+  <body>
+    Redirecting to the main app...
+  </body>
+</html>
+
+      <div class="card shadow-sm mb-3">
+        <div class="card-body">
+          <h5>Column Details</h5>
+          <div class="table-responsive">
+            <table class="table table-hover" id="columns-table"></table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5>Sample Data (First 5 Rows)</h5>
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered" id="sample-table"></table>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button id="download-report" class="btn btn-success btn-lg">
+          📥 Download HTML Report
+        </button>
+        <button id="analyze-redirect" class="btn btn-primary btn-lg ms-2">
+          🔍 View Full Summary
+        </button>
+      </div>
+    </div>
+
+    <!-- Error Alert -->
+    <div id="error-alert" class="alert alert-danger d-none"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

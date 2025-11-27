@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dataset Summary</title>
+      <link rel="icon" type="image/png" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <style>
+      body { padding: 24px; }
+      .card-grid { gap: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+      .filter-row { gap: 8px; }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="mb-4">DatasetIQ</h1>
+      <section class="mb-3">
+        <form id="upload-form" class="row g-2 align-items-center">
+          <div class="col-auto">
+            <input class="form-control" type="file" id="summary-file" accept=".csv,.xlsx">
+          </div>
+          <div class="col-auto">
+            <button id="upload-btn" class="btn btn-primary" type="button">Analyze</button>
+          </div>
+          <div class="col-auto">
+            <button id="download-cleaned-btn" class="btn btn-secondary" type="button" style="display: none;">Download Cleaned Dataset</button>
+          </div>
+          <div class="col-auto">
+            <div id="upload-status" class="text-muted small"></div>
+          </div>
+        </form>
+      </section>
+
+      <section id="top-cards" class="mb-4">
+        <style>
+          /* Default card styles */
+          .card-grid { gap: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+          .top-card { font-family: 'Segoe UI', Roboto, Arial, sans-serif; font-weight: 600; color: #fff; padding: 1rem; }
+          .top-card .card-body { padding: 0.5rem; }
+          .top-card .card-subtitle { opacity: 0.9; }
+        </style>
+        <div class="card-grid">
+          <div class="card top-card bg-danger" style="border:2px solid #c82333;">
+            <div class="card-body text-center">
+              <h6 class="card-subtitle mb-2">Columns</h6>
+              <h3 id="card-columns">-</h3>
+            </div>
+          </div>
+          <div class="card top-card bg-success" style="border:2px solid #198754;">
+            <div class="card-body text-center">
+              <h6 class="card-subtitle mb-2">Rows</h6>
+              <h3 id="card-rows">-</h3>
+            </div>
+          </div>
+          <div class="card top-card bg-warning text-dark" style="border:2px solid #e0a800; color:#212529;">
+            <div class="card-body text-center">
+              <h6 class="card-subtitle mb-2">Missing values (total)</h6>
+              <h3 id="card-missing">-</h3>
+            </div>
+          </div>
+          <div class="card top-card bg-primary" style="border:2px solid #0b5ed7;">
+            <div class="card-body text-center">
+              <h6 class="card-subtitle mb-2">File size</h6>
+              <h3 id="card-size">-</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      <section class="mb-3">
+        <div class="d-flex align-items-center mb-2 filter-row">
+          <div class="me-2">
+            <label class="form-label mb-0">Data Type</label>
+            <select id="filter-type" class="form-select">
+              <option value="">All types</option>
+            </select>
+          </div>
+          <div class="me-2">
+            <label class="form-label mb-0">Max Missing</label>
+            <input id="filter-missing" type="number" class="form-control" placeholder="e.g. 1000">
+          </div>
+          <div class="ms-auto">
+            <label class="form-label mb-0">Search</label>
+            <input id="table-search" class="form-control" placeholder="Search columns...">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="table-responsive">
+          <table id="columns-table" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Column Name</th>
+                <th>Data Type</th>
+                <th>Missing Values</th>
+                <th>Unique Values</th>
+                <th>Mean</th>
+                <th>Median</th>
+                <th>Std Dev</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="charts-section" class="mb-4" style="display: none;">
+        <h2 class="mb-3">Charts</h2>
+        <div id="charts-container" class="row"></div>
+      </section>
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="/static/js/summary.js"></script>
+  </body>
+</html>
