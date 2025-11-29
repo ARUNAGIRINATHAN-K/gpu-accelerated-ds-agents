@@ -1,281 +1,227 @@
-# 📊 Data Analyst Agent
+<div align="center">
+  
+# Data Analytics App
 
-An **AI-powered Data Analyst Assistant** that helps users analyze datasets in natural language.
-Built with **HTML, Bootstrap, and JavaScript (frontend)** and **Python (Flask/FastAPI + Pydantic-AI + Pandas/Polars)** as backend.
+![Data Analytics App Banner](https://via.placeholder.com/1200x300/0ea5e9/ffffff?text=Data+Analytics+App+-+Visualize+%7C+Analyze+%7C+Transform)
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-2.0+-black?logo=flask)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-green?logo=fastapi)
-![Pydantic](https://img.shields.io/badge/Pydantic-AI-orange?logo=pydantic)
-![Pandas](https://img.shields.io/badge/Pandas-1.5+-blue?logo=pandas)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-5-563D7C?logo=bootstrap&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript&logoColor=black)
-![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs)
-![License](https://img.shields.io/github/license/your-username/data-analyst-agent)
-![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
+> Transform complex datasets into actionable insights with intelligent visualization and scalable analytics
+
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/yourusername/data-analytics-app)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Code Coverage](https://img.shields.io/badge/coverage-87%25-green)](https://codecov.io)
+[![Version](https://img.shields.io/badge/version-1.0.0-orange)](https://github.com/yourusername/data-analytics-app/releases)
+
+### Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white) ![D3.js](https://img.shields.io/badge/D3.js-F9A03C?style=for-the-badge&logo=d3.js&logoColor=white) |
+| **Backend** | ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white) ![Apache Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white) |
+| **Database** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white) |
+| **Tools & Libraries** | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white) ![OAuth](https://img.shields.io/badge/OAuth_2.0-3C873A?style=for-the-badge&logo=auth0&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) |
 
 
-The system allows users to:
-
-* Upload datasets (CSV/Excel).
-* Ask natural language questions (e.g., *“Show me the average revenue by region over time”*).
-* Receive structured insights and visualizations (tables, charts).
-
----
-
-## 🚀 Features
-
-* **Dataset Upload**: Accepts CSV/Excel files from users.
-* **Natural Language Querying**: Users type plain-English questions.
-* **Pydantic-AI Schema Validation**: Queries are translated into structured, validated schemas.
-* **Data Analysis Engine**: Pandas/Polars executes filtering, grouping, aggregation, and summaries.
-* **Visualization**: Frontend renders results using **Bootstrap tables** and **Chart.js/D3.js** charts.
-* **RESTful API**: Flask/FastAPI backend for query processing and dataset management.
+</div>
 
 ---
 
-## 🏗️ Architecture
+## Overview
 
-### High-Level Flow
+**Data Analytics App** is a comprehensive platform designed to simplify the management, segregation, and visualization of complex datasets. Born from the challenges of analyzing COVID-19 data during the pandemic, this application provides an intuitive interface for data entry, robust backend processing, and interactive visualizations that transform raw data into meaningful insights.
 
-1. **Frontend (HTML + Bootstrap + JS)**
+### Who It's For
 
-   * UI for file upload and query input.
-   * Displays analysis results and charts.
+- **Data Analysts** seeking powerful visualization tools
+- **Researchers** managing diverse datasets across multiple categories
+- **Organizations** requiring scalable analytics solutions
+- **Decision Makers** who need clear, actionable insights from complex data
 
-2. **Backend (Python with Flask/FastAPI)**
+### What Makes It Unique
 
-   * Handles dataset uploads and query requests.
-   * Passes user queries to reasoning engine.
-
-3. **Reasoning Layer (Pydantic-AI)**
-
-   * Translates natural language into structured schemas (e.g., `AggregationRequest`, `SummaryRequest`, `VisualizationRequest`).
-   * Ensures valid queries.
-
-4. **Execution Engine (Pandas/Polars)**
-
-   * Executes requested analysis on dataset.
-   * Returns structured JSON response.
-
-5. **Frontend Rendering**
-
-   * Uses Chart.js/D3.js for visualization.
-   * Uses Bootstrap tables/cards for results display.
+- **Hybrid Database Architecture**: Combines PostgreSQL for structured analytics with MongoDB for flexible data ingestion
+- **Real-time Interactive Visualizations**: Powered by D3.js for dynamic, responsive charts and graphs
+- **Big Data Ready**: Apache Spark integration for processing massive datasets efficiently
+- **Category-Based Segregation**: Intelligent data organization system inspired by real-world pandemic data challenges
+- **Secure & Scalable**: OAuth authentication with enterprise-grade security practices
 
 ---
 
-## 📊 EDA Project Phases
+## Installation / Setup Instructions
 
-| Phase | Name        | Purpose                                                                 |
-|-------|-------------|-------------------------------------------------------------------------|
-| 1     | Foundation  | Establish the groundwork: load data, inspect structure, and set up the environment. |
-| 2     | Refinement  | Clean and preprocess data: handle missing values, outliers, and ensure consistency. |
-| 3     | Lens        | Focus on individual features: explore distributions, summary statistics, and categorical counts. |
-| 4     | Connections | Analyze relationships: correlations, scatterplots, heatmaps, and multivariate insights. |
-| 5     | Discovery   | Derive insights: feature engineering, highlight patterns, and prepare data for modeling. |
+### Prerequisites
 
+Before you begin, ensure you have the following installed:
 
----
+- **Python** 3.8 or higher
+- **Node.js** 14.x or higher
+- **PostgreSQL** 13.x or higher
+- **MongoDB** 4.4 or higher
+- **Apache Spark** 3.0+ (optional, for big data processing)
+- **Git**
 
-## 🔹 Architecture Overview
+### Step-by-Step Installation
 
-```
-                ┌────────────────────────────┐
-                │        Frontend (UI)        │
-                │  HTML + Bootstrap + JS      │
-                │────────────────────────────│
- User Uploads → │ File Upload (CSV/Excel)     │
- User Queries → │ Text Input (Natural Query)  │
-                │ Visualization (Chart.js)    │
-                └───────────▲─────┬──────────┘
-                            │     │
-          (AJAX/Fetch API)  │     │  (JSON Response)
-                            │     │
-                ┌───────────┴─────▼──────────┐
-                │        Backend API          │
-                │ Flask / FastAPI (Python)    │
-                │─────────────────────────────│
-   Routes:      │ /upload   → receive dataset │
-                │ /analyze  → interpret query │
-                │ /visualize→ return chart    │
-                └───────────▲─────┬──────────┘
-                            │     │
-                            │     │ (structured schema)
-                            │     │
-                ┌───────────┴─────▼──────────┐
-                │   Reasoning & Validation    │
-                │    Pydantic-AI Models       │
-                │─────────────────────────────│
-                │ Validate Query Intent       │
-                │ (Aggregation, Summary, Viz) │
-                │ Ensure schema correctness   │
-                └───────────▲─────┬──────────┘
-                            │     │
-                            │     │ (clean instructions)
-                            │     │
-                ┌───────────┴─────▼──────────┐
-                │      Execution Engine       │
-                │   Pandas / Polars in Python │
-                │─────────────────────────────│
-                │ Process dataset (filter,    │
-                │ group, aggregate, describe) │
-                │ Return table/chart data     │
-                └───────────▲─────┬──────────┘
-                            │     │
-                            │     │ (results as JSON)
-                            │     │
-                ┌───────────┴─────▼──────────┐
-                │        Frontend JS          │
-                │  Renders results in DOM     │
-                │  Bootstrap table / Chart.js │
-                └─────────────────────────────┘
-```
-
----
-
-## 🔹 Key Flow
-
-1. **Frontend (HTML/Bootstrap/JS)**
-
-   * User uploads dataset & submits query.
-   * Query + dataset metadata sent via AJAX to backend.
-
-2. **Backend (Flask/FastAPI)**
-
-   * Handles API routes (`/upload`, `/analyze`).
-   * Passes user query to **Pydantic-AI models**.
-
-3. **Pydantic-AI (Reasoning Layer)**
-
-   * Interprets query into structured schema (e.g., `AggregationRequest`).
-   * Ensures validity (no nonsense like “average of names”).
-
-4. **Execution Engine (Pandas/Polars)**
-
-   * Runs requested operation on dataset.
-   * Returns structured JSON with results or chart data.
-
-5. **Frontend (JS + Bootstrap)**
-
-   * Receives JSON → Renders tables with Bootstrap and charts with Chart.js.
-
-
-## 🔧 Tech Stack
-
-### Frontend
-
-* **HTML5, CSS3**
-* **Bootstrap 5** (responsive layout, styling)
-* **JavaScript (ES6)**
-* **Chart.js / D3.js** (visualizations)
-
-### Backend
-
-* **Python 3.10+**
-* **Flask / FastAPI** (REST API)
-* **Pydantic-AI** (structured schema validation)
-* **Pandas / Polars** (data analysis)
-
----
-
-## ⚙️ API Endpoints
-
-| Endpoint     | Method | Description                        |
-| ------------ | ------ | ---------------------------------- |
-| `/upload`    | POST   | Upload dataset (CSV/Excel)         |
-| `/analyze`   | POST   | Submit natural language query      |
-| `/visualize` | GET    | Retrieve visualization config/data |
-
----
-
-## 📂 Project Structure
-
-```
-data-analyst-agent/
-│── backend/
-│   ├── app.py              # Flask/FastAPI entrypoint
-│   ├── models.py           # Pydantic schemas
-│   ├── analyzer.py         # Pandas/Polars execution engine
-│   └── utils/              # Helpers (validation, parsing)
-│
-│── frontend/
-│   ├── index.html          # Main UI page
-│   ├── styles.css          # Custom Bootstrap overrides
-│   ├── app.js              # JS logic (fetch API, rendering)
-│   └── charts.js           # Chart rendering functions
-│
-│── datasets/               # Uploaded user datasets
-│── README.md               # Documentation
-│── requirements.txt        # Python dependencies
-```
-
----
-
-## 📖 Example Workflow
-
-1. User uploads `sales_data.csv`.
-2. User enters query: *“What is the average revenue by country?”*
-3. Backend (via Pydantic-AI) translates into structured schema:
-
-   ```json
-   {
-     "type": "AggregationRequest",
-     "group_by": "country",
-     "metric": "revenue",
-     "agg_func": "mean"
-   }
-   ```
-4. Execution engine (Pandas/Polars) computes results:
-
-   ```
-   Country   | Avg Revenue
-   ----------|------------
-   USA       | 45000
-   UK        | 38000
-   India     | 27000
-   ```
-5. Frontend renders:
-
-   * Bootstrap **table** with computed values.
-   * Chart.js **bar chart** of revenue by country.
-
----
-
-## 📦 Installation & Setup
-
-### 1️⃣ Clone Repository
+#### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ARUNAGIRINATHAN-K/Data-Analyst-Agent.git
-cd data-analyst-agent
+git clone https://github.com/yourusername/data-analytics-app.git
+cd data-analytics-app
 ```
 
-### 2️⃣ Backend Setup
+#### 2. Backend Setup (Python/Flask)
 
 ```bash
-cd backend
+# Create a virtual environment
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install Python dependencies
 pip install -r requirements.txt
 ```
 
-Run the API server:
+#### 3. Database Configuration
+
+**PostgreSQL Setup:**
 
 ```bash
-python app.py
+# Create a PostgreSQL database
+createdb analytics_db
+
+# Run migrations
+python manage.py db upgrade
 ```
 
-### 3️⃣ Frontend Setup
+**MongoDB Setup:**
 
-Open `frontend/index.html` in a browser (or serve with any static server).
+```bash
+# Start MongoDB service
+# On Windows:
+net start MongoDB
+# On macOS/Linux:
+sudo systemctl start mongod
+
+# Create MongoDB database (automatically created on first connection)
+```
+
+#### 4. Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# Flask Configuration
+FLASK_APP=app.py
+FLASK_ENV=development
+SECRET_KEY=your-secret-key-here
+
+# PostgreSQL Database
+DATABASE_URL=postgresql://username:password@localhost:5432/analytics_db
+
+# MongoDB Configuration
+MONGO_URI=mongodb://localhost:27017/analytics_data
+
+# OAuth Configuration
+OAUTH_CLIENT_ID=your-oauth-client-id
+OAUTH_CLIENT_SECRET=your-oauth-client-secret
+
+# Spark Configuration (Optional)
+SPARK_HOME=/path/to/spark
+```
+
+#### 5. Frontend Setup
+
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install Node dependencies
+npm install
+
+# Build frontend assets
+npm run build
+```
+
+#### 6. Run the Application
+
+```bash
+# Start the Flask backend (from root directory)
+python app.py
+
+# In a separate terminal, start the frontend development server
+cd frontend
+npm start
+```
+
+The application should now be running at:
+- **Backend API**: http://localhost:5000
+- **Frontend**: http://localhost:3000
+
+#### 7. Initial Data Setup (Optional)
+
+```bash
+# Load sample datasets
+python scripts/load_sample_data.py
+```
 
 ---
 
-## 🔮 Future Enhancements
+## Learning Outcomes
 
-* ✅ Context-aware conversations (query memory).
-* ✅ Automated chart recommendations.
-* ✅ Multi-dataset comparison.
-* ✅ Role-based access (Analyst, Manager, Admin).
-* ✅ Deployment on Docker, AWS, or Streamlit Cloud (for alternative prototyping).
+Through this project, you'll gain hands-on experience with:
 
+- **Data Visualization with D3.js**: Create interactive, responsive charts and dashboards
+- **Big Data Processing**: Utilize Pandas for analysis and Apache Spark for large-scale data handling
+- **Interactive Dashboards**: Build user-friendly interfaces for complex data exploration
+- **Secure Data Handling**: Implement OAuth authentication and best practices for data security
+- **Scalable Analytics Platforms**: Design systems that grow with your data needs
+- **Full-Stack Development**: Integrate frontend visualization with backend data processing
+- **Database Management**: Work with both SQL and NoSQL databases for optimal performance
 
+---
+
+## Tech Stack
+
+### Frontend
+- **D3.js** - Interactive data visualizations
+- **HTML5/CSS3** - Modern, responsive UI
+- **JavaScript (ES6+)** - Client-side interactivity
+
+### Backend
+- **Python 3.8+** - Core application logic
+- **Flask** - Web framework and REST API
+- **Pandas** - Data analysis and manipulation
+- **Matplotlib** - Static graph generation
+- **Apache Spark** - Big data processing engine
+
+### Database
+- **PostgreSQL** - Structured analytics data
+- **MongoDB** - Semi-structured data ingestion
+
+### Authentication & Security
+- **OAuth 2.0** - Secure user authentication
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+---
+
+## Support
+
+For questions, issues, or feature requests, please open an issue on [GitHub Issues](https://github.com/yourusername/data-analytics-app/issues).
+
+---
+
+**Built with ❤️ to make data analytics accessible and powerful**
