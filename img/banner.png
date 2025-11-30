@@ -1,0 +1,57 @@
+<svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow filter for text -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Rectangle with Gradient -->
+  <rect width="1200" height="300" rx="12" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern Overlay -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="300" fill="url(#grid)" opacity="0.3"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="240" cy="150" r="150" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="960" cy="240" r="120" fill="rgba(255,255,255,0.05)"/>
+  
+  <!-- Data Visualization Bars (Left Side) -->
+  <rect x="96" y="165" width="30" height="135" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <rect x="180" y="105" width="30" height="195" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <rect x="264" y="150" width="30" height="150" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <rect x="348" y="75" width="30" height="225" rx="4" fill="rgba(255,255,255,0.15)"/>
+  
+  <!-- Data Visualization Bars (Right Side) -->
+  <rect x="822" y="135" width="30" height="165" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <rect x="906" y="90" width="30" height="210" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <rect x="990" y="156" width="30" height="144" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <rect x="1074" y="114" width="30" height="186" rx="4" fill="rgba(255,255,255,0.15)"/>
+  
+  <!-- Main Title -->
+  <text x="600" y="140" font-family="'Segoe UI', Arial, sans-serif" font-size="72" font-weight="800" fill="white" text-anchor="middle" filter="url(#glow)">
+    DataCanvas
+  </text>
+  
+  <!-- Accent Line -->
+  <rect x="570" y="160" width="60" height="4" rx="2" fill="white" opacity="0.9"/>
+  
+  <!-- Tagline -->
+  <text x="600" y="205" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="300" fill="rgba(255,255,255,0.95)" text-anchor="middle" letter-spacing="2">
+    VISUALIZE • ANALYZE • TRANSFORM
+  </text>
+</svg>
