@@ -1,15 +1,13 @@
 <div align="center">
-  
-# Data Analytics App
 
-![Data Analytics App Banner](https://via.placeholder.com/1200x300/0ea5e9/ffffff?text=Data+Analytics+App+-+Visualize+%7C+Analyze+%7C+Transform)
+  ![DataCanvas Banner](img/banner.png)
 
 > Transform complex datasets into actionable insights with intelligent visualization and scalable analytics
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/yourusername/data-analytics-app)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/ARUNAGIRINATHAN-K/Data-Analyst-Agent)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Code Coverage](https://img.shields.io/badge/coverage-87%25-green)](https://codecov.io)
-[![Version](https://img.shields.io/badge/version-1.0.0-orange)](https://github.com/yourusername/data-analytics-app/releases)
+[![Version](https://img.shields.io/badge/version-1.0.0-orange)](https://github.com/ARUNAGIRINATHAN-K/Data-Analyst-Agent/releases)
 
 ### Tech Stack
 
@@ -64,8 +62,8 @@ Before you begin, ensure you have the following installed:
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/data-analytics-app.git
-cd data-analytics-app
+git clone https://github.com/ARUNAGIRINATHAN-K/Data-Analyst-Agent.git
+cd Data-Analyst-Agent
 ```
 
 #### 2. Backend Setup (Python/Flask)
@@ -171,7 +169,7 @@ python scripts/load_sample_data.py
 
 ## Learning Outcomes
 
-Through this project, you'll gain hands-on experience with:
+Through this project, i had gained hands-on experience with:
 
 - **Data Visualization with D3.js**: Create interactive, responsive charts and dashboards
 - **Big Data Processing**: Utilize Pandas for analysis and Apache Spark for large-scale data handling
@@ -204,24 +202,8 @@ Through this project, you'll gain hands-on experience with:
 ### Authentication & Security
 - **OAuth 2.0** - Secure user authentication
 
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
----
-
-## Support
-
-For questions, issues, or feature requests, please open an issue on [GitHub Issues](https://github.com/yourusername/data-analytics-app/issues).
-
----
+<div align="center">
 
 **Built with ❤️ to make data analytics accessible and powerful**
+
+</div>
