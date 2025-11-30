@@ -1,6 +1,8 @@
 <div align="center">
 
-  ![DataCanvas Banner](img/banner.svg)
+  <!---![DataCanvas Banner](img/banner.svg)--->
+   ![DataCanvas Banner](img/DC.png)
+
 
 *Transform complex datasets into actionable insights with intelligent visualization and scalable analytics*
 
