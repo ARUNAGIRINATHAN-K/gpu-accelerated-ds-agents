@@ -1,0 +1,32 @@
+============================================================
+EDA REPORT DEBUG OUTPUT
+============================================================
+
+📊 Summary:
+Dataset Overview:
+- Shape: 100 rows × 4 columns
+- Numeric columns: 3
+- Categorical columns: 1
+- Memory usage: 0.01 MB
+
+Data Quality:
+- Missing values: 0 across 0 columns
+- Outliers detected: 0 across 0 columns
+
+💡 Insights (1):
+1. Small dataset - consider data augmentation or simpler models
+
+📈 Visualizations (5):
+1. Correlation heatmap for numerical features
+2. Distribution plots for key numerical columns
+3. Missing value heatmap
+4. Box plots for outlier visualization
+5. Bar charts for categorical variables
+
+📋 Recommendations (2):
+1. Proceed with feature engineering
+2. Consider feature scaling for model training
+
+============================================================
+Full report dict:
+{'agent': 'EDA Agent', 'metadata': {'agent_name': 'EDA Agent', 'start_time': datetime.datetime(2025, 12, 20, 22, 25, 46, 734364), 'end_time': None, 'duration_seconds': None, 'status': 'running'}, 'summary': 'Dataset Overview:\n- Shape: 100 rows × 4 columns\n- Numeric columns: 3\n- Categorical columns: 1\n- Memory usage: 0.01 MB\n\nData Quality:\n- Missing values: 0 across 0 columns\n- Outliers detected: 0 across 0 columns', 'insights': ['Small dataset - consider data augmentation or simpler models'], 'visualizations': ['Correlation heatmap for numerical features', 'Distribution plots for key numerical columns', 'Missing value heatmap', 'Box plots for outlier visualization', 'Bar charts for categorical variables'], 'recommendations': ['Proceed with feature engineering', 'Consider feature scaling for model training']}
