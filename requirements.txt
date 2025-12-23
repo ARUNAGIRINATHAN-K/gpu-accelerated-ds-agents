@@ -1,0 +1,40 @@
+# Local Environment Dependencies
+# For running Streamlit UI and LLM orchestrator on your machine
+
+# Web Framework
+streamlit>=1.29.0
+streamlit-option-menu>=0.3.6
+
+# LLM & AI
+transformers>=4.36.0
+torch>=2.1.0
+accelerate>=0.25.0
+bitsandbytes>=0.41.0  # For model quantization
+langchain>=0.1.0
+langchain-community>=0.0.10
+
+# Data Processing (CPU fallback)
+pandas>=2.1.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Visualization
+plotly>=5.18.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Configuration
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+
+# Utilities
+tqdm>=4.66.0
+requests>=2.31.0
+httpx>=0.25.0
+
+# Notebook Integration
+nbformat>=5.9.0
+nbconvert>=7.12.0
+
+# Optional: Ollama Python client (alternative to Transformers)
+# ollama>=0.1.0
