@@ -1,0 +1,54 @@
+# Agent Configuration
+# Settings for each autonomous agent subsystem
+
+eda_agent:
+  enabled: true
+  max_correlations: 50  # Maximum number of correlations to compute
+  outlier_threshold: 3.0  # Standard deviations for outlier detection
+  missing_threshold: 0.3  # Threshold for flagging high missing values
+  auto_insights: true  # Generate LLM-based insights
+  
+feature_engineering_agent:
+  enabled: true
+  max_features: 100  # Maximum number of features to generate
+  polynomial_degree: 2  # Degree for polynomial features
+  interaction_depth: 2  # Depth for interaction features
+  selection_methods:
+    - correlation
+    - mutual_information
+    - lasso
+  selection_threshold: 0.01  # Importance threshold for feature selection
+  
+modeling_agent:
+  enabled: true
+  algorithms:
+    - xgboost_gpu
+    - random_forest_gpu
+    - linear_regression
+    - logistic_regression
+  cv_folds: 5  # Cross-validation folds
+  tuning_iterations: 50  # Hyperparameter tuning iterations
+  early_stopping_rounds: 10
+  ensemble: true  # Create ensemble models
+  
+visualization_agent:
+  enabled: true
+  max_plots: 20  # Maximum number of plots to generate
+  plot_types:
+    - distribution
+    - correlation_heatmap
+    - scatter
+    - box
+    - feature_importance
+    - roc_curve
+    - confusion_matrix
+  interactive: true  # Use Plotly for interactive plots
+  
+reporting_agent:
+  enabled: true
+  formats:
+    - markdown
+    - html
+  include_code: false  # Include code snippets in reports
+  include_visualizations: true
+  benchmark_cpu: true  # Compare with CPU baseline

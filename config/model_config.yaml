@@ -1,0 +1,80 @@
+# Model Configuration
+# Default hyperparameters and search spaces
+
+xgboost_gpu:
+  default_params:
+    tree_method: gpu_hist
+    gpu_id: 0
+    max_depth: 6
+    learning_rate: 0.1
+    n_estimators: 100
+    subsample: 0.8
+    colsample_bytree: 0.8
+    objective: auto  # Will be set based on task
+  search_space:
+    max_depth: [3, 5, 7, 9]
+    learning_rate: [0.01, 0.05, 0.1, 0.3]
+    n_estimators: [50, 100, 200, 500]
+    subsample: [0.6, 0.8, 1.0]
+    colsample_bytree: [0.6, 0.8, 1.0]
+
+random_forest_gpu:
+  default_params:
+    n_estimators: 100
+    max_depth: 10
+    max_features: sqrt
+    n_streams: 4  # cuML parameter
+  search_space:
+    n_estimators: [50, 100, 200]
+    max_depth: [5, 10, 15, 20]
+    max_features: [sqrt, log2]
+
+linear_models:
+  ridge:
+    alpha: 1.0
+    search_space:
+      alpha: [0.01, 0.1, 1.0, 10.0, 100.0]
+  lasso:
+    alpha: 1.0
+    search_space:
+      alpha: [0.01, 0.1, 1.0, 10.0, 100.0]
+  logistic:
+    C: 1.0
+    max_iter: 1000
+    search_space:
+      C: [0.01, 0.1, 1.0, 10.0, 100.0]
+
+pytorch_mlp:
+  default_params:
+    hidden_layers: [128, 64, 32]
+    activation: relu
+    dropout: 0.2
+    learning_rate: 0.001
+    batch_size: 256
+    epochs: 100
+    early_stopping_patience: 10
+  search_space:
+    hidden_layers: [[64, 32], [128, 64], [256, 128, 64]]
+    dropout: [0.1, 0.2, 0.3]
+    learning_rate: [0.0001, 0.001, 0.01]
+
+# Training Configuration
+training:
+  test_size: 0.2
+  validation_size: 0.1
+  random_state: 42
+  stratify: true  # For classification tasks
+  
+# Evaluation Metrics
+metrics:
+  classification:
+    - accuracy
+    - precision
+    - recall
+    - f1
+    - roc_auc
+  regression:
+    - mse
+    - rmse
+    - mae
+    - r2

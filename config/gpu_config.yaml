@@ -1,0 +1,42 @@
+# GPU Configuration
+# Settings optimized for Google Colab GPU runtime
+
+# Device Settings
+device:
+  auto_select: true  # Automatically select best available device
+  preferred: cuda  # cuda, cpu, or auto
+  fallback_to_cpu: true  # Fall back to CPU if GPU unavailable
+
+# Memory Management (Colab-specific)
+memory:
+  # Tesla T4: ~15GB, V100: ~16GB
+  max_gpu_memory_gb: 14  # Leave some headroom
+  batch_size_auto: true  # Automatically adjust batch size
+  chunk_size_mb: 512  # Chunk size for large dataset loading
+  clear_cache_frequency: 10  # Clear GPU cache every N operations
+  
+# Colab Runtime
+colab:
+  session_timeout_hours: 12  # Colab free tier timeout
+  checkpoint_frequency_minutes: 30  # Save checkpoints periodically
+  auto_reconnect: true
+  
+# Performance Settings
+performance:
+  use_mixed_precision: true  # FP16 for faster training
+  cudnn_benchmark: true  # Optimize cuDNN for your hardware
+  num_workers: 2  # DataLoader workers
+  pin_memory: true
+  
+# RAPIDS Settings
+rapids:
+  rmm_pool_size: 0.8  # Use 80% of GPU memory for RMM pool
+  rmm_managed_memory: true
+  cudf_spill: true  # Spill to host memory if GPU full
+  
+# Monitoring
+monitoring:
+  log_gpu_stats: true
+  stats_interval_seconds: 30
+  track_memory_usage: true
+  alert_on_oom: true  # Alert on out-of-memory

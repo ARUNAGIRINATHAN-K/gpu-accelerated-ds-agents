@@ -1,0 +1,94 @@
+# Local LLM Configuration
+# Settings for open-source LLM orchestrator
+
+# Model Selection
+model:
+  # Options: llama-2-7b, mistral-7b, phi-2, tinyllama-1.1b
+  name: mistral-7b-instruct-v0.2
+  provider: transformers  # transformers or ollama
+  
+  # Hugging Face Model IDs
+  hf_models:
+    llama-2-7b: meta-llama/Llama-2-7b-chat-hf
+    mistral-7b: mistralai/Mistral-7B-Instruct-v0.2
+    phi-2: microsoft/phi-2
+    tinyllama: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+  
+  # Ollama Model Names (if using Ollama)
+  ollama_models:
+    llama-2-7b: llama2:7b
+    mistral-7b: mistral:7b
+    phi-2: phi:2.7b
+
+# Quantization (for memory efficiency)
+quantization:
+  enabled: true
+  bits: 4  # 4-bit or 8-bit quantization
+  load_in_4bit: true
+  load_in_8bit: false
+  bnb_4bit_compute_dtype: float16
+  bnb_4bit_use_double_quant: true
+  bnb_4bit_quant_type: nf4
+
+# Generation Parameters
+generation:
+  max_new_tokens: 512
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  repetition_penalty: 1.1
+  do_sample: true
+  
+# Context Management
+context:
+  max_context_length: 4096
+  context_window: 2048  # Actual tokens to use
+  truncation_strategy: recent  # recent or summary
+  
+# Performance
+performance:
+  device: auto  # auto, cuda, cpu
+  torch_dtype: float16
+  low_cpu_mem_usage: true
+  use_cache: true
+  
+# Orchestrator Behavior
+orchestrator:
+  planning_mode: autonomous  # autonomous or guided
+  max_retries: 3
+  timeout_seconds: 60
+  verbose: true
+  
+  # Agent selection strategy
+  agent_selection:
+    mode: llm_guided  # llm_guided, sequential, or custom
+    allow_parallel: false  # Run agents in parallel when possible
+    
+  # Prompts
+  system_prompt: |
+    You are an expert data science orchestrator. Your role is to analyze datasets
+    and coordinate autonomous agents to perform comprehensive data analysis.
+    You should plan workflows, select appropriate agents, and make intelligent
+    decisions based on data characteristics and intermediate results.
+    
+  planning_prompt: |
+    Given the following dataset information:
+    - Columns: {columns}
+    - Shape: {shape}
+    - Data types: {dtypes}
+    - Missing values: {missing}
+    
+    Plan an optimal data science workflow. Select which agents to run and in what order.
+    Available agents: EDA, Feature Engineering, Modeling, Visualization, Reporting.
+    
+    Respond with a JSON workflow plan.
+
+# Fallback (if LLM unavailable)
+fallback:
+  use_rule_based: true  # Use rule-based orchestrator if LLM fails
+  default_workflow:
+    - eda
+    - feature_engineering
+    - modeling
+    - visualization
+    - reporting
