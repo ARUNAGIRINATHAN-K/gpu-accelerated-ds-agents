@@ -1,6 +1,4 @@
 """
-Quick Demo: GPU-Accelerated EDA Agent
-
 This script demonstrates the EDA agent with minimal output.
 """
 
