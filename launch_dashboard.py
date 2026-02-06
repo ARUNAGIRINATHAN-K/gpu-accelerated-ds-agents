@@ -1,7 +1,5 @@
 """
 Launch Streamlit Dashboard
-
-Simple launcher script for the Streamlit UI.
 """
 
 import subprocess
