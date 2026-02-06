@@ -1,6 +1,4 @@
 """
-Complete End-to-End Pipeline Demo
-
 This script demonstrates the full autonomous data science pipeline:
 1. EDA Agent
 2. Modeling Agent
